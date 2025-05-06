@@ -32,7 +32,7 @@
     }
 
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/493242017_1246189604176723_2002656292591476911_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFK1NCWa8L_mf2Q06wAUWRSJ9Jq5SpbSUQn0mrlKltJRAXB7TbuUoa09iJef1UlJMYl-765xJGfAsVjvYDWZDLd&_nc_ohc=Y_T7JHGv-RgQ7kNvwHHiXHC&_nc_oc=AdkrAlnsnfcbKbJGESRjZN_m9XkcWqLRJrNzuJ311O0P56060tJluX0TuO1rZAVwSiU&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=6UILlRHMRh_veLaf-VnklQ&oh=00_AfL22vmm7JriFy6zV_bpF2sfCx2vSv8MEPwCvqOURKiNng&oe=681FB16F') center 40% / cover no-repeat fixed;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/493242017_1246189604176723_2002656292591476911_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFK1NCWa8L_mf2Q06wAUWRSJ9Jq5SpbSUQn0mrlKltJRAXB7TbuUoa09iJef1UlJMYl-765xJGfAsVjvYDWZDLd&_nc_ohc=Y_T7JHGv-RgQ7kNvwHHiXHC&_nc_oc=AdkrAlnsnfcbKbJGESRjZN_m9XkcWqLRJrNzuJ311O0P56060tJluX0TuO1rZAVwSiU&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=vC32WuOdJXbNQ7ib42rUIw&oh=00_AfKZnntWgSbMBrMphP9wJ25NNJ5YBEEAsF0TjMK90kwUIw&oe=681FB16F') center 40% / cover no-repeat fixed;
       min-height: 85vh;
       display: flex;
       align-items: center;
@@ -196,6 +196,7 @@
 
     .support-btn:hover {
       background-color: #e5e7eb !important;
+      color: var(--primary) !important;
       transform: scale(1.05);
     }
 
@@ -205,7 +206,7 @@
       height: 506px;
       border: none;
       border-radius: 12px;
-      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+      box-shadow accepting: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
     @media (max-width: 768px) {
@@ -286,7 +287,7 @@
       color: white;
       padding: 12px 18px;
       border-radius: 50%;
-      display: none;
+ bontent: none;
       z-index: 1000;
       transition: opacity 0.3s ease, transform 0.3s ease;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -304,7 +305,7 @@
 
     .slideshow-container {
       position: relative;
-      max-width: 450px; /* Adjusted for portrait video width */
+      max-width: 450px;
       margin: 0 auto;
       border-radius: 12px;
       box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -322,7 +323,7 @@
 
     .video-wrapper {
       position: relative;
-      padding-bottom: 177.78%; /* 9:16 Aspect Ratio for portrait videos */
+      padding-bottom: 177.78%;
       height: 0;
       overflow: hidden;
       border-radius: 12px;
@@ -339,11 +340,11 @@
 
     @media (max-width: 768px) {
       .slideshow-container {
-        max-width: 300px; /* Smaller width for mobile */
+        max-width: 300px;
       }
 
       .video-wrapper {
-        padding-bottom: 177.78%; /* Maintain portrait aspect ratio */
+        padding-bottom: 177.78%;
       }
     }
 
@@ -433,7 +434,7 @@
           <li><a href="#video" class="hover:text-yellow-400 transition">Video</a></li>
           <li><a href="#contact" class="hover:text-yellow-400 transition">Contact</a></li>
           <li>
-            <a href="mailto:info@earltanformayor.com?subject=Get Involved" class="support-btn bg-white text-red-800 px-4 py-2 rounded-lg font-bold hover:bg-gray-200 transition" style="color: var(--primary);">Get Involved</a>
+            <a href="mailto:info@earltanformayor.com?subject=Get Involved" class="support-btn bg-white px-4 py-2 rounded-lg font-bold hover:bg-gray-200 transition">Get Involved</a>
           </li>
         </ul>
       </nav>
@@ -634,7 +635,7 @@
     <div class="container mx-auto px-4">
       <h2 class="text-4xl font-bold mb-4 animate-on-scroll">SI ATTY. EARL TAN ANG MAYOR KO!</h2>
       <p class="text-lg mb-8 animate-on-scroll">Sumali sa darating na eleksyon at iboto ang pagbabago!</p>
-      <a href="mailto:info@earltanformayor.com?subject=Support the Campaign" class="support-btn bg-white text-red-800 px-6 py-3 rounded-lg font-bold hover:bg-gray-200 transition animate-on-scroll" style="color: var(--primary);">Suportahan ang Aming Kampanya</a>
+      <a href="mailto:info@earltanformayor.com?subject=Support the Campaign" class="support-btn bg-white px-6 py-3 rounded-lg font-bold hover:bg-gray-200 transition animate-on-scroll">Suportahan ang Aming Kampanya</a>
     </div>
   </section>
 
