@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Atty. Earl Tan for Mayor of San Jose - A 14-point KarapaTAN agenda for progress and equity.">
   <meta name="keywords" content="Atty Earl Tan, San Jose Mayor, KarapaTAN Agenda, San Jose Campaign">
-  <meta name="author" content="Atty. Earl Tan Campaign Team">
+  <meta name="author" content="Fan of Atty. Earl Tan">
   <title>Atty. Earl Tan for Mayor | San Jose</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
@@ -32,7 +32,7 @@
     }
 
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/493242017_1246189604176723_2002656292591476911_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFK1NCWa8L_mf2Q06wAUWRSJ9Jq5SpbSUQn0mrlKltJRAXB7TbuUoa09iJef1UlJMYl-765xJGfAsVjvYDWZDLd&_nc_ohc=Y_T7JHGv-RgQ7kNvwHHiXHC&_nc_oc=AdkrAlnsnfcbKbJGESRjZN_m9XkcWqLRJrNzuJ311O0P56060tJluX0TuO1rZAVwSiU&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=vC32WuOdJXbNQ7ib42rUIw&oh=00_AfKZnntWgSbMBrMphP9wJ25NNJ5YBEEAsF0TjMK90kwUIw&oe=681FB16F') center 40% / cover no-repeat fixed;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/493242017_1246189604176723_2002656292591476911_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFK1NCWa8L_mf2Q06wAUWRSJ9Jq5SpbSUQn0mrlKltJRAXB7TbuUoa09iJef1UlJMYl-765xJGfAsVjvYDWZDLd&_nc_ohc=Y_T7JHGv-RgQ7kNvwET8tDT&_nc_oc=AdmxXzDvR-tCMRvPyRJa-SRfaXExO0rummR9IATeW1OnD8XeMMElu38drZ35SErBFG8&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=BXQixqhKQ2eFqbIAXdbB9A&oh=00_AfKo1xiSojeKAfUIjc7shx4KTXgllzRxyEM1Be-CcJQXbA&oe=681FB16F') center 40% / cover no-repeat fixed;
       min-height: 85vh;
       display: flex;
       align-items: center;
@@ -206,7 +206,7 @@
       height: 506px;
       border: none;
       border-radius: 12px;
-      box-shadow accepting: 0 6px 12px rgba(0, 0, 0, 0.15);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
     @media (max-width: 768px) {
@@ -247,13 +247,18 @@
     }
 
     .agenda-video, .discover-video {
-      margin: 3rem 0;
+      margin: 3rem auto;
+      max-width: 450px;
+      width: 100%;
     }
 
     .portrait-video {
       position: relative;
       width: 100%;
-      padding-top: 177.78%;
+      padding-bottom: 177.78%; /* 9:16 aspect ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
     }
 
     .portrait-video iframe {
@@ -262,6 +267,13 @@
       left: 0;
       width: 100%;
       height: 100%;
+      border: none;
+    }
+
+    @media (min-width: 768px) {
+      .agenda-video {
+        max-width: 600px; /* Slightly larger for larger screens */
+      }
     }
 
     .section-title {
@@ -287,7 +299,7 @@
       color: white;
       padding: 12px 18px;
       border-radius: 50%;
- bontent: none;
+      display: none;
       z-index: 1000;
       transition: opacity 0.3s ease, transform 0.3s ease;
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -349,20 +361,22 @@
     }
 
     .slideshow-caption {
-      background-color: rgba(0, 0, 0, 0.7);
+      background-color: rgba(0, 0, 0, 0.8);
       color: white;
-      padding: 1rem;
+      padding: 1.25rem;
       margin: 0 auto;
       max-width: 450px;
       border-radius: 0 0 12px 12px;
-      font-size: 1.1rem;
+      font-size: 1.25rem;
       font-family: 'Roboto', sans-serif;
+      text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     }
 
     @media (max-width: 768px) {
       .slideshow-caption {
         max-width: 300px;
-        font-size: 0.9rem;
+        font-size: 1rem;
+        padding: 1rem;
       }
     }
 
@@ -373,19 +387,20 @@
       transform: translateY(-50%);
       width: 50px;
       height: 50px;
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.6);
       color: white;
-      font-size: 1.5rem;
+      font-size: 1.75rem;
       display: flex;
       align-items: center;
       justify-content: center;
       border-radius: 50%;
       user-select: none;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .prev:hover, .next:hover {
-      background-color: rgba(0, 0, 0, 0.8);
+      background-color: rgba(0, 0, 0, 0.9);
+      transform: translateY(-50%) scale(1.1);
     }
 
     .prev {
@@ -398,26 +413,37 @@
 
     .dots-container {
       text-align: center;
-      padding: 1rem 0;
+      padding: 1.5rem 0;
     }
 
     .dot {
       cursor: pointer;
       height: 15px;
       width: 15px;
-      margin: 0 5px;
+      margin: 0 8px;
       background-color: #bbb;
       border-radius: 50%;
       display: inline-block;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     .dot.active, .dot:hover {
       background-color: var(--primary);
+      transform: scale(1.2);
     }
   </style>
 </head>
 <body>
+  <!-- Background Music -->
+  <audio id="backgroundMusic" loop autoplay muted>
+    <source src="https://drive.google.com/uc?export=download&id=1F5ZFVHav0I0dzTM4PYI_NbI7-SYH6xHS" type="audio/mpeg">
+    Your browser does not support the audio element. Please ensure the audio file is accessible.
+  </audio>
+
+  <!-- Facebook SDK -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v20.0&appId=YOUR_APP_ID"></script>
+
   <header class="bg-red-800 text-white py-5 sticky top-0 z-50 shadow-lg" style="background-color: var(--primary);">
     <div class="container mx-auto px-4">
       <nav class="flex justify-between items-center" aria-label="Main navigation">
@@ -446,7 +472,7 @@
       <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-on-scroll">ATTY. EARL TAN PARA SA MAYOR</h1>
       <h2 class="text-xl md:text-3xl mb-8 animate-on-scroll">Pagtibayin ang San Jose para sa Lahat</h2>
       <a href="#agenda" class="bg-red-800 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition animate-on-scroll" style="background-color: var(--primary);">Tingnan ang Aming Agenda</a>
-      <p class="text-lg mt-4 animate-on-scroll">Sumali sa Proclamation Rally sa May 10. Ang detalye ay iaanunsiyo pa. <a href="https://www.facebook.com/share/v/1FbnQ2XopS/" class="text-yellow-400 hover:underline" target="_blank">Alamin pa</a></p>
+      <p class="text-lg mt-4 animate-on-scroll">Join Atty. Earl Tan's Motorcade on May 10, 2:00 PM, starting at Igay Road. Route: Igay, Starmall, Tungko, Grotto, Gaya-Gaya, Muzon, Mt. View, Pabahay Muzon, Poblacion, S.P. Proper, Sampol, Road 2, Quarry, Sto. Cristo. <a href="https://www.facebook.com/photo?fbid=1255722449890105&set=a.377939094335116" class="text-yellow-400 hover:underline" target="_blank">Alamin pa</a></p>
     </div>
   </section>
 
@@ -456,7 +482,7 @@
         <h2 class="text-4xl font-bold text-red-800 mb-4 animate-on-scroll section-title" style="color: var(--primary);">14-Point KarapaTAN Agenda</h2>
         <p class="text-lg text-gray-800 animate-on-scroll">Isang makabagong plano upang tugunan ang pangangailangan ng mga San Joseño para sa progreso at katarungan.</p>
       </div>
-      <div class="agenda-video flex justify-center animate-on-scroll">
+      <div class="agenda-video animate-on-scroll">
         <div class="portrait-video">
           <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fattymdtan2022%2Fvideos%2F1031356388952517%2F&show_text=false" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         </div>
@@ -625,8 +651,10 @@
         <h2 class="text-4xl font-bold text-red-800 mb-4 animate-on-scroll section-title" style="color: var(--primary);">Panoorin ang Aming Campaign Video</h2>
         <p class="text-lg text-gray-800 animate-on-scroll">Alamin ang bisyon ni Atty. Earl Tan para sa mas maunlad na San Jose.</p>
       </div>
-      <div class="video-section flex justify-center animate-on-scroll">
-        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fattymdtan2022%2Fvideos%2F1015326339975392%2F&show_text=false&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      <div class="video-section flex justify-center max-w-md mx-auto animate-on-scroll">
+        <div class="portrait-video">
+          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fattymdtan2022%2Fvideos%2F702177489152099%2F&show_text=false" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+        </div>
       </div>
     </div>
   </section>
@@ -667,6 +695,7 @@
       </div>
       <div class="text-center mt-8 pt-8 border-t border-white border-opacity-10">
         <p>© 2025 Atty. Earl Tan for Mayor Campaign. All Rights Reserved.</p>
+        <p class="mt-2 text-sm">Disclaimer: This website is created and maintained by a fan and is not officially affiliated with the Atty. Earl Tan Campaign Team.</p>
       </div>
     </div>
   </footer>
@@ -685,7 +714,69 @@
     const dots = document.querySelectorAll('.dot');
     const prevBtn = document.querySelector('.prev');
     const nextBtn = document.querySelector('.next');
+    const backgroundMusic = document.querySelector('#backgroundMusic');
     let currentSlide = 0;
+
+    // Attempt to play audio and handle errors
+    function attemptPlayAudio() {
+      backgroundMusic.volume = 0.2; // Set low volume
+      backgroundMusic.play().catch(error => {
+        console.error('Audio playback failed:', error);
+      });
+    }
+
+    // Handle audio loading errors
+    backgroundMusic.addEventListener('error', (e) => {
+      console.error('Audio loading error:', e);
+      console.log('Audio source:', backgroundMusic.src);
+      // Retry loading audio after a delay
+      setTimeout(() => {
+        backgroundMusic.load();
+        attemptPlayAudio();
+      }, 2000);
+    });
+
+    // Unmute and play audio on first user interaction
+    document.body.addEventListener('click', () => {
+      if (backgroundMusic.muted) {
+        backgroundMusic.muted = false;
+        attemptPlayAudio();
+      }
+    }, { once: true });
+
+    // Initialize Facebook SDK and handle video events
+    window.fbAsyncInit = function() {
+      FB.init({
+        appId: 'YOUR_APP_ID',
+        xfbml: true,
+        version: 'v20.0'
+      });
+
+      // Get all Facebook video iframes
+      const videoIframes = document.querySelectorAll('iframe[src*="facebook.com/plugins/video.php"]');
+      videoIframes.forEach((iframe, index) => {
+        FB.Event.subscribe('xfbml.ready', function(msg) {
+          if (msg.type === 'video' && msg.instance.getConfig().href === iframe.src) {
+            const player = msg.instance;
+            player.subscribe('startedPlaying', () => {
+              backgroundMusic.pause();
+            });
+            player.subscribe('paused', () => {
+              if (!backgroundMusic.muted) {
+                attemptPlayAudio();
+              }
+            });
+          }
+        });
+      });
+    };
+
+    // Fallback if FB SDK fails to load
+    window.addEventListener('error', (e) => {
+      if (e.target.src.includes('connect.facebook.net')) {
+        console.error('Facebook SDK failed to load. Video controls may not work.');
+      }
+    }, true);
 
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
