@@ -32,7 +32,7 @@
     }
 
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/490829526_1236476881814662_8506685130685614009_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGyutqnwQ2izdnt70R1vmqwLr_unna2Jy8uv-6edrYnL24BUk_Mre2Hu1d_MxyG0ZuOptUnBkmuGUe_N1DiW8-T&_nc_ohc=Lep7VagcniUQ7kNvwFwx09T&_nc_oc=Adn80F7JB0WiqQ_2-6uDyeB-Ul5lHAbLUeg2y-zZyZWypMY1VnziN4rhwTsep7zbkOM&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=sl4Cg6kedMok9qlEMdUnTw&oh=00_AfLzRvJk3rkXV-WUheVP6vai14jusJEwXkVrJB7xHUrI8g&oe=681F82CD') center/cover no-repeat fixed;
+      background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/493242017_1246189604176723_2002656292591476911_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeFK1NCWa8L_mf2Q06wAUWRSJ9Jq5SpbSUQn0mrlKltJRAXB7TbuUoa09iJef1UlJMYl-765xJGfAsVjvYDWZDLd&_nc_ohc=Y_T7JHGv-RgQ7kNvwHHiXHC&_nc_oc=AdkrAlnsnfcbKbJGESRjZN_m9XkcWqLRJrNzuJ311O0P56060tJluX0TuO1rZAVwSiU&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=6UILlRHMRh_veLaf-VnklQ&oh=00_AfL22vmm7JriFy6zV_bpF2sfCx2vSv8MEPwCvqOURKiNng&oe=681FB16F') center 40% / cover no-repeat fixed;
       min-height: 85vh;
       display: flex;
       align-items: center;
@@ -40,6 +40,23 @@
       text-align: center;
       color: white;
       position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+
+    .hero > * {
+      position: relative;
+      z-index: 2;
     }
 
     .card {
@@ -284,6 +301,119 @@
       transform: scale(1.1);
       background-color: #a71d22;
     }
+
+    .slideshow-container {
+      position: relative;
+      max-width: 450px; /* Adjusted for portrait video width */
+      margin: 0 auto;
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
+    .slideshow-slide {
+      display: none;
+      width: 100%;
+      text-align: center;
+    }
+
+    .slideshow-slide.active {
+      display: block;
+    }
+
+    .video-wrapper {
+      position: relative;
+      padding-bottom: 177.78%; /* 9:16 Aspect Ratio for portrait videos */
+      height: 0;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    @media (max-width: 768px) {
+      .slideshow-container {
+        max-width: 300px; /* Smaller width for mobile */
+      }
+
+      .video-wrapper {
+        padding-bottom: 177.78%; /* Maintain portrait aspect ratio */
+      }
+    }
+
+    .slideshow-caption {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 1rem;
+      margin: 0 auto;
+      max-width: 450px;
+      border-radius: 0 0 12px 12px;
+      font-size: 1.1rem;
+      font-family: 'Roboto', sans-serif;
+    }
+
+    @media (max-width: 768px) {
+      .slideshow-caption {
+        max-width: 300px;
+        font-size: 0.9rem;
+      }
+    }
+
+    .prev, .next {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      user-select: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .prev:hover, .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    .prev {
+      left: 10px;
+    }
+
+    .next {
+      right: 10px;
+    }
+
+    .dots-container {
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .dot {
+      cursor: pointer;
+      height: 15px;
+      width: 15px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      transition: background-color 0.3s ease;
+    }
+
+    .dot.active, .dot:hover {
+      background-color: var(--primary);
+    }
   </style>
 </head>
 <body>
@@ -452,6 +582,42 @@
     </div>
   </section>
 
+  <section id="issues" class="py-20 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <div class="text-center mb-12">
+        <h2 class="text-4xl font-bold text-red-800 mb-4 animate-on-scroll section-title" style="color: var(--primary);">Mga Isyu ng San Joseño</h2>
+        <p class="text-lg text-gray-800 animate-on-scroll">Pakinggan ang mga hiniling ng ating mga kababayan at ang tugon ni Atty. Earl Tan.</p>
+      </div>
+      <div class="slideshow-container">
+        <div class="slideshow-slide animate-on-scroll">
+          <div class="video-wrapper">
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fattymdtan2022%2Fvideos%2F669712535674383%2F&show_text=false" style="border:none;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+          </div>
+          <div class="slideshow-caption">Isang residente ang nagrereklamo tungkol sa di-makatarungang pagtrato habang hinaharangan si Atty. Earl Tan na makapasok upang mangampanya.</div>
+        </div>
+        <div class="slideshow-slide animate-on-scroll">
+          <div class="video-wrapper">
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fattymdtan2022%2Fvideos%2F645104821813649%2F&show_text=false" style="border:none;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+          </div>
+          <div class="slideshow-caption">Sa San Jose Heights, 2-3 buwan nang walang tubig pero patuloy ang buwanang bayarin—parang holdap na ang nangyayari.</div>
+        </div>
+        <div class="slideshow-slide animate-on-scroll">
+          <div class="video-wrapper">
+            <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Freel%2F713509418022942%2F&show_text=false" style="border:none;" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+          </div>
+          <div class="slideshow-caption">Plano para sa mga estudyante: Mali ang akala na tatanggalin ni Atty. Tan ang scholarship—bilang abogado, siya pa ang magtataguyod nito dahil naniniwala siya sa edukasyon.</div>
+        </div>
+        <a class="prev" aria-label="Previous slide" role="button" tabindex="0">❮</a>
+        <a class="next" aria-label="Next slide" role="button" tabindex="0">❯</a>
+      </div>
+      <div class="dots-container">
+        <span class="dot" data-slide="0"></span>
+        <span class="dot" data-slide="1"></span>
+        <span class="dot" data-slide="2"></span>
+      </div>
+    </div>
+  </section>
+
   <section id="video" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
@@ -514,6 +680,11 @@
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
     const backToTop = document.querySelector('.back-to-top');
+    const slides = document.querySelectorAll('.slideshow-slide');
+    const dots = document.querySelectorAll('.dot');
+    const prevBtn = document.querySelector('.prev');
+    const nextBtn = document.querySelector('.next');
+    let currentSlide = 0;
 
     hamburger.addEventListener('click', () => {
       hamburger.classList.toggle('active');
@@ -565,6 +736,60 @@
         backToTop.classList.remove('visible');
       }
     });
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.remove('active');
+        dots[i].classList.remove('active');
+      });
+      slides[index].classList.add('active');
+      dots[index].classList.add('active');
+      currentSlide = index;
+    }
+
+    prevBtn.addEventListener('click', () => {
+      let newIndex = currentSlide - 1;
+      if (newIndex < 0) newIndex = slides.length - 1;
+      showSlide(newIndex);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      let newIndex = currentSlide + 1;
+      if (newIndex >= slides.length) newIndex = 0;
+      showSlide(newIndex);
+    });
+
+    prevBtn.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        let newIndex = currentSlide - 1;
+        if (newIndex < 0) newIndex = slides.length - 1;
+        showSlide(newIndex);
+      }
+    });
+
+    nextBtn.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        let newIndex = currentSlide + 1;
+        if (newIndex >= slides.length) newIndex = 0;
+        showSlide(newIndex);
+      }
+    });
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        const slideIndex = parseInt(dot.getAttribute('data-slide'));
+        showSlide(slideIndex);
+      });
+
+      dot.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          const slideIndex = parseInt(dot.getAttribute('data-slide'));
+          showSlide(slideIndex);
+        }
+      });
+    });
+
+    showSlide(0);
   </script>
 </body>
 </html>
