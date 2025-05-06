@@ -3,14 +3,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Atty. Earl Tan for Mayor of San Jose - A 14-point KarapaTAN agenda for progress and equity.">
+  <meta name="keywords" content="Atty Earl Tan, San Jose Mayor, KarapaTAN Agenda, San Jose Campaign">
+  <meta name="author" content="Atty. Earl Tan Campaign Team">
   <title>Atty. Earl Tan for Mayor | San Jose</title>
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --primary: #c22126;
       --secondary: #00264d;
       --light: #f8f9fa;
       --dark: #212529;
+      --accent: #f7e018;
     }
 
     * {
@@ -23,31 +28,35 @@
       line-height: 1.6;
       color: var(--dark);
       background-color: var(--light);
+      margin: 0;
     }
 
     .hero {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/489632267_1229019625893721_3609461751274676161_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeEFtAHeZKryEFd7cxdzh_ctpZWc8WjnqiyllZzxaOeqLBGT9N0wpC_17vO-h9-eadxdHX05shisz6oTmMrcIWyl&_nc_ohc=KNOP5_HEojMQ7kNvwFf_MHG&_nc_oc=Adl0qdas5ddU3RpFBZgEWaq3d32n-Ca24YpryTcCGHYSaCXjB-X9dNYNPAZ3BvtRuqM&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=2fsAjFp6MnBTBs2U7pDLNw&oh=00_AfEGsO4iY3toe1GMSxJGS2ktDcQJTCYxjcb78x5YatCp7w&oe=68053D9A') center/cover no-repeat fixed;
-      min-height: 80vh;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/490829526_1236476881814662_8506685130685614009_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGyutqnwQ2izdnt70R1vmqwLr_unna2Jy8uv-6edrYnL24BUk_Mre2Hu1d_MxyG0ZuOptUnBkmuGUe_N1DiW8-T&_nc_ohc=Lep7VagcniUQ7kNvwFwx09T&_nc_oc=Adn80F7JB0WiqQ_2-6uDyeB-Ul5lHAbLUeg2y-zZyZWypMY1VnziN4rhwTsep7zbkOM&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=sl4Cg6kedMok9qlEMdUnTw&oh=00_AfLzRvJk3rkXV-WUheVP6vai14jusJEwXkVrJB7xHUrI8g&oe=681F82CD') center/cover no-repeat fixed;
+      min-height: 85vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
       color: white;
+      position: relative;
     }
 
     .card {
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-radius: 12px;
+      overflow: hidden;
     }
 
     .card:hover {
       transform: translateY(-10px);
-      box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.2);
     }
 
     .animate-on-scroll {
       opacity: 0;
       transform: translateY(50px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
     .animate-on-scroll.visible {
@@ -55,48 +64,63 @@
       transform: translateY(0);
     }
 
-    .sticky-donate {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      z-index: 1000;
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.1); }
-      100% { transform: scale(1); }
-    }
-
     .hamburger {
       display: none;
       flex-direction: column;
       cursor: pointer;
+      z-index: 1001;
     }
 
     .hamburger span {
-      width: 25px;
-      height: 3px;
+      width: 28px;
+      height: 4px;
       background-color: white;
       margin: 2px 0;
       transition: all 0.3s ease;
+    }
+
+    .hamburger.active span:nth-child(1) {
+      transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(8px, -8px);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
     }
 
     @media (max-width: 768px) {
       .nav-links {
         display: none;
         flex-direction: column;
-        position: absolute;
-        top: 70px;
+        position: fixed;
+        top: 0;
         left: 0;
         width: 100%;
-        background-color: #c22126; /* Fallback for --primary */
-        padding: 1rem;
+        height: 100vh;
+        background-color: var(--primary);
+        padding: 5rem 1rem;
+        z-index: 1000;
+        justify-content: center;
       }
 
       .nav-links.active {
         display: flex;
+      }
+
+      .nav-links li {
+        margin: 2rem 0;
+      }
+
+      .nav-links a {
+        font-size: 1.75rem;
       }
 
       .hamburger {
@@ -104,36 +128,40 @@
       }
 
       .hero h1 {
-        font-size: 2.5rem;
+        font-size: 2.75rem;
       }
 
-      .about {
-        grid-template-columns: 1fr;
+      .hero h2 {
+        font-size: 1.5rem;
       }
     }
 
-    /* Ensure navigation links are visible */
     header {
-      background-color: #c22126 !important; /* Fallback for --primary */
+      background-color: var(--primary) !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
 
     .nav-links a {
       color: white !important;
+      font-size: 1.15rem;
+      padding: 0.75rem 1.25rem;
+      transition: color 0.3s ease, background-color 0.3s ease;
+      border-radius: 8px;
     }
 
     .nav-links a:hover {
-      color: #f7e018 !important; /* Yellow hover color */
+      color: var(--accent) !important;
+      background-color: rgba(255,255,255,0.1);
     }
 
-    /* Ensure platform title cards are visible */
     .card-title {
-      background-color: #c22126 !important; /* Fallback for --primary */
+      background-color: var(--primary) !important;
       color: white !important;
+      font-family: 'Roboto', sans-serif;
     }
 
-    /* Ensure "Si Atty. Earl Tan ang Mayor Ko" section text is visible */
     .mayor-section {
-      background-color: #c22126 !important; /* Fallback for --primary */
+      background-color: var(--primary) !important;
     }
 
     .mayor-section h2,
@@ -141,56 +169,141 @@
       color: white !important;
     }
 
-    /* Fix button visibility */
-    .donate-btn,
     .support-btn {
       background-color: white !important;
-      color: #c22126 !important;
-      border: 1px solid #c22126 !important; /* Add border for visibility */
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important; /* Add shadow for distinction */
+      color: var(--primary) !important;
+      border: 2px solid var(--primary) !important;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15) !important;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
-    .donate-btn:hover,
     .support-btn:hover {
-      background-color: #e5e7eb !important; /* Gray-200 for hover */
+      background-color: #e5e7eb !important;
+      transform: scale(1.05);
     }
 
-    /* Style for video section */
     .video-section iframe {
       width: 100%;
-      max-width: 800px; /* Limit max width for larger screens */
-      height: 450px; /* Standard 16:9 aspect ratio */
+      max-width: 900px;
+      height: 506px;
       border: none;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
     }
 
     @media (max-width: 768px) {
       .video-section iframe {
-        height: 300px; /* Adjust height for smaller screens */
+        height: 350px;
       }
+    }
+
+    .social-icons a {
+      transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      background-color: var(--primary);
+      transform: scale(1.1);
+    }
+
+    footer a {
+      color: var(--accent);
+      transition: color 0.3s ease;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .discover-card {
+      background-color: var(--light);
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .discover-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .agenda-video, .discover-video {
+      margin: 3rem 0;
+    }
+
+    .portrait-video {
+      position: relative;
+      width: 100%;
+      padding-top: 177.78%;
+    }
+
+    .portrait-video iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .section-title {
+      position: relative;
+      display: inline-block;
+    }
+
+    .section-title::after {
+      content: '';
+      position: absolute;
+      width: 50%;
+      height: 4px;
+      background-color: var(--accent);
+      bottom: -8px;
+      left: 25%;
+    }
+
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: var(--primary);
+      color: white;
+      padding: 12px 18px;
+      border-radius: 50%;
+      display: none;
+      z-index: 1000;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .back-to-top.visible {
+      display: block;
+      opacity: 1;
+    }
+
+    .back-to-top:hover {
+      transform: scale(1.1);
+      background-color: #a71d22;
     }
   </style>
 </head>
 <body>
-  <header class="bg-red-800 text-white py-4 sticky top-0 z-50 shadow-lg" style="background-color: #c22126;">
+  <header class="bg-red-800 text-white py-5 sticky top-0 z-50 shadow-lg" style="background-color: var(--primary);">
     <div class="container mx-auto px-4">
-      <nav class="flex justify-between items-center">
-        <div class="text-2xl font-bold">Karapa<span class="text-yellow-400">TAN</span></div>
-        <div class="hamburger">
+      <nav class="flex justify-between items-center" aria-label="Main navigation">
+        <div class="text-2xl md:text-3xl font-bold">Karapa<span class="text-yellow-400">TAN</span></div>
+        <div class="hamburger" aria-label="Toggle menu" role="button" tabindex="0">
           <span></span>
           <span></span>
           <span></span>
         </div>
         <ul class="nav-links flex space-x-6 items-center">
           <li><a href="#home" class="hover:text-yellow-400 transition">Home</a></li>
-          <li><a href="#platform" class="hover:text-yellow-400 transition">Platform</a></li>
-          <li><a href="#about" class="hover:text-yellow-400 transition">About</a></li>
+          <li><a href="#agenda" class="hover:text-yellow-400 transition">14-Point Agenda</a></li>
+          <li><a href="#discover" class="hover:text-yellow-400 transition">Discover Atty. Tan</a></li>
           <li><a href="#video" class="hover:text-yellow-400 transition">Video</a></li>
-          <li><a href="#news" class="hover:text-yellow-400 transition">News</a></li>
           <li><a href="#contact" class="hover:text-yellow-400 transition">Contact</a></li>
           <li>
-            <a href="#donate" class="donate-btn bg-white text-red-800 px-4 py-2 rounded hover:bg-gray-200 transition" style="color: #c22126;">Donate</a>
+            <a href="mailto:info@earltanformayor.com?subject=Get Involved" class="support-btn bg-white text-red-800 px-4 py-2 rounded-lg font-bold hover:bg-gray-200 transition" style="color: var(--primary);">Get Involved</a>
           </li>
         </ul>
       </nav>
@@ -199,227 +312,190 @@
 
   <section id="home" class="hero">
     <div class="container mx-auto px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-on-scroll">ATTY. EARL TAN FOR MAYOR</h1>
-      <h2 class="text-xl md:text-2xl mb-8 animate-on-scroll">Building a Better San Jose for All</h2>
-      <a href="#platform" class="bg-red-800 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition animate-on-scroll" style="background-color: #c22126;">View Our Platform</a>
+      <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-on-scroll">ATTY. EARL TAN PARA SA MAYOR</h1>
+      <h2 class="text-xl md:text-3xl mb-8 animate-on-scroll">Pagtibayin ang San Jose para sa Lahat</h2>
+      <a href="#agenda" class="bg-red-800 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition animate-on-scroll" style="background-color: var(--primary);">Tingnan ang Aming Agenda</a>
+      <p class="text-lg mt-4 animate-on-scroll">Sumali sa Proclamation Rally sa May 10. Ang detalye ay iaanunsiyo pa. <a href="https://www.facebook.com/share/v/1FbnQ2XopS/" class="text-yellow-400 hover:underline" target="_blank">Alamin pa</a></p>
     </div>
   </section>
 
-  <section id="platform" class="py-16">
+  <section id="agenda" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-red-800 mb-4" style="color: #c22126;">14-Point KarapaTAN Platform</h2>
-        <p class="text-lg text-gray-800">Mayroon lamang naman siyang 14-point PLATFORM para sa ating mga SAN JOSEÑO at marami pang iba.</p>
+        <h2 class="text-4xl font-bold text-red-800 mb-4 animate-on-scroll section-title" style="color: var(--primary);">14-Point KarapaTAN Agenda</h2>
+        <p class="text-lg text-gray-800 animate-on-scroll">Isang makabagong plano upang tugunan ang pangangailangan ng mga San Joseño para sa progreso at katarungan.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-            <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">1. KarapaTAN sa Tubig</div>
-            <div class="p-6 text-gray-800">
-              <p>Maayos, malinis, tuloy-tuloy na daloy at makatwiran na presyo ng TUBIG.</p>
-              <ul class="list-disc pl-5 mt-4">
-                <li>Paggamit ng kapangyarihan na nasa mandato ng isang mayor para agarang masolusyunan ang problema sa tubig</li>
-                <li>Mapanagot ang mga taong nagdulot ng problema sa tubig ng mga San Joseño</li>
-              </ul>
-            </div>
-          </axisArtifact>
+      <div class="agenda-video flex justify-center animate-on-scroll">
+        <div class="portrait-video">
+          <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fattymdtan2022%2Fvideos%2F1031356388952517%2F&show_text=false" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         </div>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
         <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">2. KarapaTAN ng Senior Citizens, Solo Parents, at PWD</div>
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">1. KarapaTAN sa Maayos, Malinis, Tuluy-tuloy na Dalo at Makatwirang Presyo ng Tubig</div>
           <div class="p-6 text-gray-800">
-            <ul class="list-disc pl-5">
-              <li>Patas at walang pinikilingang pagbibigay subsidiya at Social Pension sa mga Senior Citizens (R.A. No. 11916)</li>
-              <li>Pagbibigay benepisyo sa ating mga Solo Parents (R.A. 11861)</li>
-              <li>Pagbibigay ng benepisyo sa mga PWD</li>
-            </ul>
+            <p>Paggamit ng kapangyarihan ng alkalde upang masolusyunan ang problema sa tubig, at pananagutin ang mga tao na nagsabotahe sa tubig ng mga San Joseño.</p>
           </div>
         </div>
         <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">3. KarapaTAN ng Libre Palibing</div>
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">2. KarapaTAN ng Senior Citizens, Solo Parents, at PWD</div>
           <div class="p-6 text-gray-800">
-            <p>Para sa mga mahihirap na San Joseño na makatanggap ng serbisyong libre palibing</p>
-            <ul class="list-disc pl-5 mt-4">
-              <li>Pagsasabatas ng "FREE BURIAL ASSISTANCE TO ALL INDIGENT FAMILIES"</li>
-            </ul>
+            <p>Patas na walang kinikilingang pagbibigay ng subsidiya at pensyon sa mga Senior Citizens (R.A. No. 11916) at Social Pension, pagbibigay ng benepisyo sa mga Solo Parents (R.A. 11861), at pagbibigay ng benepisyo sa mga PWD.</p>
           </div>
         </div>
         <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">4. KarapaTAN para sa Accountability</div>
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">3. KarapaTAN ng Serbihiyong Libre Palibing sa Mahihirap na San Joseño</div>
           <div class="p-6 text-gray-800">
-            <p>Para sa Accountability ng mga Public Officials</p>
-            <ul class="list-disc pl-5 mt-4">
-              <li>Pagsasabatas ng Anti-Epal Ordinance</li>
-              <li>Pagpapaigting ng kampanya laban sa korapsiyon</li>
-              <li>Pagpapanagot sa mga abusadong kawani</li>
-            </ul>
+            <p>Pasasabatas ng "Free Burial Assistance to All Indigent Families" kung saan makakatanggap ng libreng pagpapalibing ang mga mahihirap na pamilya ng San Joseño.</p>
           </div>
         </div>
         <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">5. KarapaTAN sa Imprastraktura</div>
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">4. KarapaTAN para sa Accountability ng mga Public Officials</div>
           <div class="p-6 text-gray-800">
-            <p>Para sa maayos at epektibong pampublikong imprastraktura</p>
-            <ul class="list-disc pl-5 mt-4">
-              <li>Pagbibigay solusyon sa trapiko</li>
-              <li>Pagpapatayo ng pamilihang bayan</li>
-              <li>Paglulunsad ng "One Stop Government Services"</li>
-              <li>Pagpapabuti ng Urban Planning</li>
-            </ul>
+            <p>Pangungunahan ang pagsasabatas ng Anti-Epal Ordinance para ipagbawal ang pagdadala ng initials at litrato ng mga pulitiko sa mga pasilidad, signs, welcome arch, proyekto, at programa ng lokal na pamahalaan. Hindi rin dapat mag-ari ng sino mang pulitiko ang mga ito. Pagpapatingin ng kampanya laban sa korapsiyon, pagpapanatili sa kalakaran sa lungsod sa pagpapairal ng abuso ng mga kawani ng lungsod, pagpapataas ng blangkong papel tuwing tumatanggap ng mga ayuda, at pagpapapanumbalik at pagpapalakas ng transparency sa pamahalaan.</p>
           </div>
         </div>
         <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">6. KarapaTAN sa Hanapbuhay</div>
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">5. KarapaTAN sa Maayos at Epektibong Pampublikong Imprastraktura</div>
           <div class="p-6 text-gray-800">
-            <p>Para sa bawat San Joseño na magkaroon ng disenteng hanap-buhay</p>
-            <ul class="list-disc pl-5 mt-4">
-              <li>Paghihikayat sa mga mamamuhunan</li>
-            </ul>
+            <p>Pagpapataas ng pamilyang bayan upang mapababa ang mga presyo ng bilihin. Paglulunsad ng "One Stop Government Services", kasama rito ang Hall of Justice, pagpapabuti ng Urban Planning, at pagpapalakad ng E-Governance na bahagi ng digital infrastructure.</p>
           </div>
         </div>
         <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">7. KarapaTAN ng mga Kawani</div>
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">6. KarapaTAN ng bawat San Joseño sa Magkaroon ng Isang Disenteng Hanap-buhay</div>
           <div class="p-6 text-gray-800">
-            <p>Para sa lahat ng kawani ng pamahalaang lungsod</p>
-            <ul class="list-disc pl-5 mt-4">
-              <li>Pagbibigay ng karadagang allowances</li>
-            </ul>
+            <p>Paghihikayat sa mga mamumuhunan na mag negosyo sa ating lungsod para makalika ng mga trabaho, kaakibat nito ang paggibigay sa mga orihinal na mga San Joseño ng oportunidad na may kinilalaman sa trabaho/hanap-buhay.</p>
           </div>
         </div>
         <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">8. KarapaTAN sa Kalusugan</div>
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">7. KarapaTAN ng lahat ng Kawani ng Pampublikong Lungsod na Makatanggap ng Sapat na Allowance at Karagdagang Benepisyo</div>
           <div class="p-6 text-gray-800">
-            <p>Para sa maayos na kalusugan</p>
-            <ul class="list-disc pl-5 mt-4">
-              <li>Paglalaan ng dagdag budget sa Public Hospital</li>
-            </ul>
+            <p>Pagbibigay ng karagdagang allowances sa lahat ng kawani ng lokal na pamahalaan tulad ng ating mga guro, uniformed personnel, JO employees, at mga rank and file employees para sa i-tuloy-tuloy, makakapagbigay ng matatas na antas ng kalidad ng serbisyo.</p>
           </div>
         </div>
         <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">9. KarapaTAN sa Edukasyon</div>
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">8. KarapaTAN na Magkaroon ng Maayos na Kalusugan</div>
           <div class="p-6 text-gray-800">
-            <p>Para sa maayos at dekalidad na Edukasyon</p>
-            <ul class="list-disc pl-5 mt-4">
-              <li>Pagbibigay ng scholarship at allowances</li>
-            </ul>
+            <p>Paglaan ng dagdag na budget sa pagpapasayos ng ating Public Hospital at para rin sa karagdagang doktor, medical personnel, at makapagbigay ng abot-kayang serbisyong medikal sa mga mahihirap na kababayan.</p>
           </div>
         </div>
         <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">10. KarapaTAN para sa ZERO Criminality</div>
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">9. KarapaTAN sa Maayos at Dekalidad na Edukasyon</div>
           <div class="p-6 text-gray-800">
-            <p>Para sa ligtas na siyudad</p>
-            <ul class="list-disc pl-5 mt-4">
-              <li>Pagsugpo laban sa ilegal na droga</li>
-              <li>Pagpapaigting ng police visibility</li>
-              <li>Pagpapakabit ng CCTV</li>
-            </ul>
+            <p>Pagbibigay ng scholarship at educational allowances na walang palakasan sa piling mga Batang San Jose bilang solusyon sa tumataas na bilang ng mga Out-of-School Youth.</p>
           </div>
         </div>
         <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">11. KarapaTAN sa Ayuda</div>
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">10. KarapaTAN para sa Ligtas na Siyudad at Pagtitigin ang ZERO Criminality</div>
           <div class="p-6 text-gray-800">
-            <p>Para sa pantay-pantay na ayuda</p>
-            <ul class="list-disc pl-5 mt-4">
-              <li>Tulad ng AKAP, TUPAD, AICS</li>
-            </ul>
+            <p>Pagsugpo laban sa laganap na illegal na droga, carnapping, at iba pang krimen. Pagpapalakas ng police visibility. Pagkabit ng maragdagang CCTV sa mga pampublikong lugar.</p>
           </div>
         </div>
         <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">12. KarapaTAN ng mga Negosyante</div>
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">11. KarapaTAN ng mga San Joseño Ayudante ng Pantay-pantay sa National Government</div>
           <div class="p-6 text-gray-800">
-            <p>Para sa maliliit na negosyante</p>
+            <p>Pagkakaloob ng National Government tulad ng AKAP, TUPAD, AICS, at iba pa.</p>
           </div>
         </div>
         <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">13. KarapaTAN sa Kapaligiran</div>
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">12. KarapaTAN ng mga Maliliit na Negosyante sa Progresibong Pagnenegosyo</div>
           <div class="p-6 text-gray-800">
-            <p>Para sa malinis at ligtas na kapaligiran</p>
+            <p>Suporta sa mga maliliit na negosyante.</p>
           </div>
         </div>
         <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
-          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: #c22126;">14. KarapaTAN sa Turismo</div>
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">13. KarapaTAN sa Malinis at Ligtas na Kapaligiran</div>
           <div class="p-6 text-gray-800">
-            <p>Para sa maunlad na turismo</p>
+            <p>Suportahan ang tamang pagtatapon ng basura.</p>
+          </div>
+        </div>
+        <div class="card bg-white rounded-lg shadow-lg animate-on-scroll">
+          <div class="card-title bg-red-800 text-white p-4 font-bold text-lg" style="background-color: var(--primary);">14. KarapaTAN sa Maunlad na Turismo</div>
+          <div class="p-6 text-gray-800">
+            <p>Isulong ang turismo ng San Jose.</p>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <section id="about" class="py-16 bg-gray-50">
+  <section id="discover" class="py-20">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-red-800" style="color: #c22126;">Meet Atty. Earl Tan</h2>
+        <h2 class="text-4xl font-bold text-red-800 mb-4 animate-on-scroll section-title" style="color: var(--primary);">Kilalanin si Atty. Earl Tan</h2>
+        <p class="text-lg text-gray-800 animate-on-scroll">Alamin ang tao sa likod ng bisyon para sa mas maunlad na San Jose.</p>
       </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div class="h-96 rounded-lg bg-cover bg-center animate-on-scroll" style="background-image: url('https://scontent.fmnl14-1.fna.fbcdn.net/v/t39.30808-6/490829526_1236476881814662_8506685130685614009_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=833d8c&_nc_eui2=AeGyutqnwQ2izdnt70R1vmqwLr_unna2Jy8uv-6edrYnL24BUk_Mre2Hu1d_MxyG0ZuOptUnBkmuGUe_N1DiW8-T&_nc_ohc=00jsaTHqy9MQ7kNvwHeGxMy&_nc_oc=AdlErQDFo4V0Cu_vfoIyrI-5qkf96qdvSBPZMqbQgl4SrWs7OStzgzMDvsWCVpRYRdE&_nc_zt=23&_nc_ht=scontent.fmnl14-1.fna&_nc_gid=eDYp4QYAgTDViUnK1gubzg&oh=00_AfEhITPvt3FUlAfNblPhl3uLlyc4kaZ11yw-U8IxRPeuBA&oe=680524CD')"></div>
-        <div class="animate-on-scroll">
-          <h2 class="text-2xl font-bold text-red-800 mb-4" style="color: #c22126;">Dedicated Public Servant</h2>
-          <p class="mb-4 text-gray-800">Attorney Earl Tan has dedicated his life to public service and fighting for the rights of San Joseños. As a lawyer with extensive experience in public administration, he understands the challenges facing our community and has developed concrete solutions to address them.</p>
-          <p class="mb-4 text-gray-800">With his 14-point KarapaTAN platform, Atty. Tan aims to transform San Jose into a model city with reliable utilities, support for vulnerable sectors, accountable governance, and economic opportunities for all.</p>
-          <p class="mb-4 italic text-gray-800">"Huwag na tayo umasa ng pagbabago kung paulit-ulit po nating binoboto yung mga taong dati ninyong ibinoto. Gusto mo magkaroon ng pagbabago, bumoto ka ng bago."</p>
-          <a href="#contact" class="bg-red-800 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition" style="background-color: #c22126;">Join Our Campaign</a>
+      <div class="discover-video flex justify-center animate-on-scroll">
+        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fattymdtan2022%2Fvideos%2F1015326339975392%2F&show_text=false&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8">
+        <div class="discover-card animate-on-scroll">
+          <h3 class="text-xl font-bold text-red-800 mb-4" style="color: var(--primary);">Tapak na Public Servant</h3>
+          <p class="text-gray-800">Si Attorney Earl Tan ay isang batikang abogado na may puso para sa public service. Ang kanyang malawak na karanasan sa public administration ay nagbibigay sa kanya ng kakayahan na harapin ang mga hamon ng San Jose gamit ang praktikal at community-focused na solusyon.</p>
         </div>
+        <div class="discover-card animate-on-scroll">
+          <h3 class="text-xl font-bold text-red-800 mb-4" style="color: var(--primary);">Visionary Leader</h3>
+          <p class="text-gray-800">Sa kanyang 14-point KarapaTAN agenda, binibigyang-diin ni Atty. Tan ang isang San Jose na may maayos na serbisyo, matibay na social welfare, transparent na pamahalaan, at maraming oportunidad sa ekonomiya para sa lahat.</p>
+        </div>
+        <div class="discover-card animate-on-scroll">
+          <h3 class="text-xl font-bold text-red-800 mb-4" style="color: var(--primary);">Tagapagtaguyod ng Komunidad</h3>
+          <p class="text-gray-800">Kilala sa kanyang hands-on approach, palaging ipinaglalaban ni Atty. Tan ang karapatan ng mga San Joseño, tinitiyak na naririnig ang bawat boses at natutugunan ang bawat pangangailangan.</p>
+        </div>
+        <div class="discover-card animate-on-scroll">
+          <h3 class="text-xl font-bold text-red-800 mb-4" style="color: var(--primary);">Pananaw para sa Pagbabago</h3>
+          <p class="text-gray-800 italic">"Huwag na tayo umasa ng pagbabago kung paulit-ulit po natin binoboto yung mga tao dati niyong ibinoto. Gusto mo ng tunay na pagbabago, bumoto ka ng bago. Kaya’t sa darating na halalan, dito na tayo sa BAGO! SI ATTY. EARL TAN ANG MAYOR KO!" – Atty. Earl Tan</p>
+        </div>
+      </div>
+      <div class="text-center mt-8">
+        <a href="mailto:info@earltanformayor.com?subject=Join the Campaign" class="bg-red-800 text-white px-6 py-3 rounded-lg font-bold hover:bg-red-700 transition animate-on-scroll" style="background-color: var(--primary);">Sumali sa Aming Kampanya</a>
       </div>
     </div>
   </section>
 
-  <section id="video" class="py-16 bg-gray-50">
+  <section id="video" class="py-20 bg-gray-50">
     <div class="container mx-auto px-4">
       <div class="text-center mb-12">
-        <h2 class="text-3xl font-bold text-red-800 mb-4 animate-on-scroll" style="color: #c22126;">Watch Our Campaign Video</h2>
-        <p class="text-lg text-gray-800 animate-on-scroll">See Atty. Earl Tan’s vision for San Jose in action.</p>
+        <h2 class="text-4xl font-bold text-red-800 mb-4 animate-on-scroll section-title" style="color: var(--primary);">Panoorin ang Aming Campaign Video</h2>
+        <p class="text-lg text-gray-800 animate-on-scroll">Alamin ang bisyon ni Atty. Earl Tan para sa mas maunlad na San Jose.</p>
       </div>
       <div class="video-section flex justify-center animate-on-scroll">
-        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fattymdtan2022%2Fvideos%2F1015326339975392%2F&show_text=false&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>      </div>
+        <iframe src="https://www.facebook.com/plugins/video.php?href=https%3A%2F%2Fwww.facebook.com%2Fattymdtan2022%2Fvideos%2F1015326339975392%2F&show_text=false&width=560" width="560" height="315" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+      </div>
     </div>
   </section>
 
-  <section class="mayor-section bg-red-800 text-white py-16 text-center" style="background-color: #c22126;">
+  <section class="mayor-section bg-red-800 text-white py-16 text-center" style="background-color: var(--primary);">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold mb-4 animate-on-scroll">SI ATTY. EARL TAN ANG MAYOR KO!</h2>
-      <p class="text-lg mb-8 animate-on-scroll">Sama-sama tayo sa darating na halalan, dito na tayo sa BAGO!</p>
-      <a href="#donate" class="support-btn bg-white text-red-800 px-6 py-3 rounded-lg font-bold hover:bg-gray-200 transition animate-on-scroll" style="color: #c22126;">Support Our Campaign</a>
+      <h2 class="text-4xl font-bold mb-4 animate-on-scroll">SI ATTY. EARL TAN ANG MAYOR KO!</h2>
+      <p class="text-lg mb-8 animate-on-scroll">Sumali sa darating na eleksyon at iboto ang pagbabago!</p>
+      <a href="mailto:info@earltanformayor.com?subject=Support the Campaign" class="support-btn bg-white text-red-800 px-6 py-3 rounded-lg font-bold hover:bg-gray-200 transition animate-on-scroll" style="color: var(--primary);">Suportahan ang Aming Kampanya</a>
     </div>
   </section>
 
-  <footer class="bg-blue-900 text-white py-12" style="background-color: #00264d;">
+  <footer id="contact" class="bg-blue-900 text-white py-12" style="background-color: var(--secondary);">
     <div class="container mx-auto px-4">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div>
-          <h3 class="text-xl font-bold mb-4 relative pb-2">Contact Us</h3>
+          <h3 class="text-xl font-bold mb-4 relative pb-2">Makipag-ugnayan</h3>
           <p>Campaign Headquarters</p>
           <p>San Jose City</p>
           <p>Email: info@earltanformayor.com</p>
           <p>Phone: (123) 456-7890</p>
-          <div class="flex space-x-4 mt-4">
-            <a href="#" class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-red-800 transition" style="hover:background-color: #c22126;">f</a>
-            <a href="#" class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-red-800 transition" style="hover:background-color: #c22126;">in</a>
-            <a href="#" class="w-10 h-10 bg-white bg-opacity-10 rounded-full flex items-center justify-center hover:bg-red-800 transition" style="hover:background-color: #c22126;">ig</a>
-          </div>
         </div>
         <div>
-          <h3 class="text-xl font-bold mb-4 relative pb-2">Quick Links</h3>
+          <h3 class="text-xl font-bold mb-4 relative pb-2">Mabilis na Links</h3>
           <ul class="space-y-2">
             <li><a href="#home" class="hover:text-gray-300 transition">Home</a></li>
-            <li><a href="#platform" class="hover:text-gray-300 transition">Platform</a></li>
-            <li><a href="#about" class="hover:text-gray-300 transition">About</a></li>
-            <li><a href="#video" class="hover:text-gray-300 transition">Video</a></li>
-            <li><a href="#news" class="hover:text-gray-300 transition">News</a></li>
-            <li><a href="#contact" class="hover:text-gray-300 transition">Contact</a></li>
+            <li><a href="#agenda" class="hover:text-gray-300 transition">14-Point Agenda</a></li>
+            <li><a href="#discover" class="hover:text-gray-300 transition">Kilalanin si Atty. Tan</a></li>
+            <li><a href="https://www.facebook.com/attymdtan2022/videos/1031356388952517/" target="_blank" class="hover:text-gray-300 transition">Ipakalat ang Balita</a></li>
           </ul>
         </div>
         <div>
-          <h3 class="text-xl font-bold mb-4 relative pb-2">Get Involved</h3>
+          <h3 class="text-xl font-bold mb-4 relative pb-2">Sumali sa Kampanya</h3>
           <ul class="space-y-2">
-            <li><a href="#" class="hover:text-gray-300 transition">Volunteer</a></li>
-            <li><a href="#" class="hover:text-gray-300 transition">Donate</a></li>
-            <li><a href="#" class="hover:text-gray-300 transition">Events</a></li>
-            <li><a href="#" class="hover:text-gray-300 transition">Spread the Word</a></li>
+            <li><a href="https://www.facebook.com/attymdtan2022/videos/1031356388952517/" target="_blank" class="hover:text-gray-300 transition">Ipakalat ang Balita</a></li>
           </ul>
-        </div>
-        <div>
-          <h3 class="text-xl font-bold mb-4 relative pb-2">Newsletter</h3>
-          <p class="mb-4">Stay updated with our campaign</p>
-          <input type="email" placeholder="Your Email" class="w-full p-2 mb-4 rounded text-black">
-          <button class="bg-red-800 text-white w-full p-2 rounded hover:bg-red-700 transition" style="background-color: #c22126;">Subscribe</button>
         </div>
       </div>
       <div class="text-center mt-8 pt-8 border-t border-white border-opacity-10">
@@ -428,18 +504,36 @@
     </div>
   </footer>
 
-  <a href="#donate" class="sticky-donate bg-red-800 text-white px-6 py-3 rounded-full font-bold hover:bg-red-700 transition" style="background-color: #c22126;">Donate Now</a>
+  <a href="#home" class="back-to-top" aria-label="Back to top">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-6 h-6">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
+    </svg>
+  </a>
 
   <script>
-    // Hamburger menu toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
+    const backToTop = document.querySelector('.back-to-top');
 
     hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('active');
       navLinks.classList.toggle('active');
     });
 
-    // Scroll animations
+    hamburger.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        hamburger.classList.toggle('active');
+        navLinks.classList.toggle('active');
+      }
+    });
+
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+      });
+    });
+
     const animateElements = document.querySelectorAll('.animate-on-scroll');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -451,9 +545,25 @@
 
     animateElements.forEach(el => observer.observe(el));
 
-    // Lazy load images
     document.querySelectorAll('img').forEach(img => {
       img.setAttribute('loading', 'lazy');
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('visible');
+      } else {
+        backToTop.classList.remove('visible');
+      }
     });
   </script>
 </body>
